@@ -1,7 +1,7 @@
 # KẾ HOẠCH CHI TIẾT CHO THÀNH VIÊN 1 (TRƯỞNG NHÓM)
 ## Vai trò: Trưởng nhóm – Kỹ sư Thiết kế Mạng & Định tuyến Core (Core Network & Routing Lead)
 **Đề tài:** Thiết kế và mô phỏng hệ thống mạng doanh nghiệp an toàn sử dụng VLAN, Inter-VLAN Routing và ACL trên Cisco Packet Tracer  
-**Tài liệu tham chiếu:** [`PROJECT_PLAN.md`](PROJECT_PLAN.md) | File gốc: [`NETWORK SECURITY.pkt`](../NETWORK%20SECURITY.pkt)
+**Tài liệu tham chiếu:** [`PROJECT_PLAN.md`](PROJECT_PLAN.md) | File gốc: [`NETWORK SECURITY.pkt`](NETWORK%20SECURITY.pkt)
 
 ---
 
@@ -38,20 +38,20 @@ Công việc của bạn gồm **6 Giai đoạn** theo đúng thứ tự từ l�
 * [x] Chốt deadline nội bộ từng tuần với 2 thành viên còn lại.
 
 ### Bước 0.3: Mở và đọc hiểu file dự án gốc có sẵn
-* [x] Mở file [`NETWORK SECURITY.pkt`](../NETWORK%20SECURITY.pkt) bằng Cisco Packet Tracer để xem bố cục hiện tại (gồm `CORE-SW`, `Access-SW1`, `Access-SW2`, 14 PC/Laptop, 3 Server, 1 Attacker PC).
-* [ ] Mở đọc 3 file cấu hình mẫu trong thư mục `Configs/` bằng VS Code để biết các cổng đang dùng:
-  * [`Configs/CORE-SW.txt`](../Configs/CORE-SW.txt): `CORE-SW` là Switch Layer 3 (3560), đang dùng `GigabitEthernet0/1` nối xuống `Access-SW1` và `GigabitEthernet0/2` nối xuống `Access-SW2`.
-  * [`Configs/Access-SW1.txt`](../Configs/Access-SW1.txt): Quản lý VLAN 10 (HR) và VLAN 20 (Finance).
-  * [`Configs/Access-SW2.txt`](../Configs/Access-SW2.txt): Quản lý VLAN 30 (IT), VLAN 40 (Management), VLAN 50 (Servers) và VLAN 99 (Attacker).
+* [x] Mở file [`NETWORK SECURITY.pkt`](NETWORK%20SECURITY.pkt) bằng Cisco Packet Tracer để xem bố cục hiện tại (gồm `CORE-SW`, `Access-SW1`, `Access-SW2`, 14 PC/Laptop, 3 Server, 1 Attacker PC).
+* [x] Mở đọc 3 file cấu hình mẫu trong thư mục `Configs/` bằng VS Code để biết các cổng đang dùng:
+  * [`Configs/CORE-SW.txt`](Configs/CORE-SW.txt): `CORE-SW` là Switch Layer 3 (3560), đang dùng `GigabitEthernet0/1` nối xuống `Access-SW1` và `GigabitEthernet0/2` nối xuống `Access-SW2`.
+  * [`Configs/Access-SW1.txt`](Configs/Access-SW1.txt): Quản lý VLAN 10 (HR) và VLAN 20 (Finance).
+  * [`Configs/Access-SW2.txt`](Configs/Access-SW2.txt): Quản lý VLAN 30 (IT), VLAN 40 (Management), VLAN 50 (Servers) và VLAN 99 (Attacker).
 
 ---
 
 ## GIAI ĐOẠN 1: QUY HOẠCH MẠNG, ĐỊA CHỈ IP & ĐẶT TÊN THIẾT BỊ (NGÀY 3–4)
 
-> **Lưu ý quan trọng:** File gốc trên GitHub chỉ có mạng LAN nội bộ, **chưa có Router biên và kết nối Internet**. Phần mở rộng Router biên + NAT/PAT là nhiệm vụ trọng tâm của bạn để bài nhóm đạt điểm cao và đúng mục tiêu trong [`Thiết kế mạng nhóm 8.pdf`](../Thiết%20kế%20mạng%20nhóm%208.pdf).
+> **Lưu ý quan trọng:** File gốc trên GitHub chỉ có mạng LAN nội bộ, **chưa có Router biên và kết nối Internet**. Phần mở rộng Router biên + NAT/PAT là nhiệm vụ trọng tâm của bạn để bài nhóm đạt điểm cao và đúng mục tiêu trong [`Thiết kế mạng nhóm 8.pdf`](Thiết%20kế%20mạng%20nhóm%208.pdf).
 
 ### Bước 1.1: Chốt danh sách đổi tên thiết bị (Tránh bị đánh dấu copy bài mẫu)
-* [ ] Chốt quy ước đặt tên cho cả nhóm dùng thống nhất trong Packet Tracer, file Config và Báo cáo:
+* [x] Chốt quy ước đặt tên cho cả nhóm dùng thống nhất trong Packet Tracer, file Config và Báo cáo:
   * `CORE-SW` $\rightarrow$ **`CoreSW-Nhom8`**
   * `Access-SW1` $\rightarrow$ **`AccessSW1-Nhom8`** (TV2 sẽ đổi hoặc bạn đổi tên hiển thị trước)
   * `Access-SW2` $\rightarrow$ **`AccessSW2-Nhom8`**
@@ -59,7 +59,7 @@ Công việc của bạn gồm **6 Giai đoạn** theo đúng thứ tự từ l�
   * Thiết bị bạn thêm mới 2: **`ISP-Internet`** (Router giả lập nhà mạng / Internet)
 
 ### Bước 1.2: Lập Bảng quy hoạch VLAN & IP (Dùng để dán vào Chương 2 Báo cáo)
-* [ ] Kiểm tra và chốt bảng phân chia mạng con (Subnet `/24`) dưới đây (giữ nguyên cấu trúc 6 VLAN nội bộ + bổ sung 2 dải IP Point-to-Point `/30` cho đường nối Router):
+* [x] Kiểm tra và chốt bảng phân chia mạng con (Subnet `/24`) dưới đây (giữ nguyên cấu trúc 6 VLAN nội bộ + bổ sung 2 dải IP Point-to-Point `/30` cho đường nối Router):
 
 | Vùng mạng / VLAN | Bộ phận / Chức năng | Dải mạng (Subnet) | Subnet Mask | Default Gateway | Dải IP cấp cho thiết bị |
 |:---:|---|---|---|---|---|
@@ -76,7 +76,7 @@ Công việc của bạn gồm **6 Giai đoạn** theo đúng thứ tự từ l�
 ### Bước 1.3: Chốt sơ đồ nối cổng (Port Mapping) cho phần Core & Router
 > **Chú ý kỹ thuật cực kỳ quan trọng:** Switch Layer 3 Cisco 3560 trong Packet Tracer chỉ có **2 cổng GigabitEthernet** (`Gi0/1` và `Gi0/2`), hiện đã dùng hết để nối xuống `Access-SW1` và `Access-SW2`. Vì vậy, đường nối từ `CoreSW-Nhom8` lên `EdgeRouter-Nhom8` sẽ dùng cổng **`FastEthernet0/24`** ở chế độ cổng định tuyến (`no switchport`).
 
-* [ ] Xác nhận bảng nối dây:
+* [x] Xác nhận bảng nối dây:
   * `CoreSW-Nhom8` (`Gi0/1`) $\longleftrightarrow$ `AccessSW1-Nhom8` (`Gi0/1`) *(Trunk 802.1Q - Đã có sẵn)*
   * `CoreSW-Nhom8` (`Gi0/2`) $\longleftrightarrow$ `AccessSW2-Nhom8` (`Gi0/1`) *(Trunk 802.1Q - Đã có sẵn)*
   * `CoreSW-Nhom8` (`Fa0/24`) $\longleftrightarrow$ `EdgeRouter-Nhom8` (`Gi0/0`) *(Dùng cáp thẳng - Copper Straight-Through)*
@@ -87,21 +87,21 @@ Công việc của bạn gồm **6 Giai đoạn** theo đúng thứ tự từ l�
 ## GIAI ĐOẠN 2: CHỈNH SỬA TOPOLOGY TRÊN CISCO PACKET TRACER (NGÀY 5)
 
 ### Bước 2.1: Lưu bản sao làm việc riêng
-* [ ] Mở file [`NETWORK SECURITY.pkt`](../NETWORK%20SECURITY.pkt).
-* [ ] Chọn **File > Save As...** lưu ngay thành **`NETWORK_NHOM8_v1_Core.pkt`** để không làm hỏng file gốc.
+* [x] Mở file [`NETWORK SECURITY.pkt`](NETWORK%20SECURITY.pkt).
+* [x] Chọn **File > Save As...** lưu ngay thành **`NETWORK_NHOM8_v1_Core.pkt`** để không làm hỏng file gốc.
 
 ### Bước 2.2: Đổi tên thiết bị & sắp xếp lại bố cục
-* [ ] Nhấp vào từng thiết bị trên màn hình (hoặc tab **Config > Display Name**), đổi tên hiển thị cho gọn: `CoreSW-Nhom8`, `AccessSW1-Nhom8`, `AccessSW2-Nhom8`.
+* [x] Nhấp vào từng thiết bị trên màn hình (hoặc tab **Config > Display Name**), đổi tên hiển thị cho gọn: `CoreSW-Nhom8`, `AccessSW1-Nhom8`, `AccessSW2-Nhom8`.
 * [ ] Nếu muốn, dùng nút **Draw Rectangle / Fill Color** trên thanh công cụ Packet Tracer để vẽ khung màu phân vùng lại rõ ràng từng phòng ban (HR, Finance, IT, Management, Servers, Attacker, Edge/ISP) kèm dòng chữ ghi tên nhóm: *"Hệ thống mạng doanh nghiệp an toàn - Nhóm 8"*.
 
 ### Bước 2.3: Thêm thiết bị Router biên & ISP và cắm dây
-* [ ] Ở góc dưới bên trái Packet Tracer, chọn **Network Devices > Routers**.
-* [ ] Kéo thả **2 Router Cisco 2911** (hoặc **1941**) lên phía trên `CoreSW-Nhom8`.
-* [ ] Đổi Display Name của Router thứ nhất thành **`EdgeRouter-Nhom8`**, Router thứ hai thành **`ISP-Internet`**.
-* [ ] Chọn mục **Connections** (biểu tượng tia sét):
+* [x] Ở góc dưới bên trái Packet Tracer, chọn **Network Devices > Routers**.
+* [x] Kéo thả **2 Router Cisco 2911** (hoặc **1941**) lên phía trên `CoreSW-Nhom8`.
+* [x] Đổi Display Name của Router thứ nhất thành **`EdgeRouter-Nhom8`**, Router thứ hai thành **`ISP-Internet`**.
+* [x] Chọn mục **Connections** (biểu tượng tia sét):
   * Chọn **Copper Straight-Through** (cáp thẳng nét liền): Bấm vào `CoreSW-Nhom8` chọn **`FastEthernet0/24`**, kéo lên `EdgeRouter-Nhom8` chọn **`GigabitEthernet0/0`**.
   * Chọn **Copper Cross-Over** (cáp chéo nét đứt): Bấm vào `EdgeRouter-Nhom8` chọn **`GigabitEthernet0/1`**, kéo lên `ISP-Internet` chọn **`GigabitEthernet0/0`**.
-* [ ] *(Tùy chọn)* Thêm 1 biểu tượng đám mây hoặc vẽ khung màu xanh dương bao quanh `ISP-Internet` ghi nhãn `MẠNG INTERNET (ISP - 8.8.8.8)`.
+* [x] *(Tùy chọn)* Thêm 1 biểu tượng đám mây hoặc vẽ khung màu xanh dương bao quanh `ISP-Internet` ghi nhãn `MẠNG INTERNET (ISP - 8.8.8.8)`.
 
 ---
 
@@ -109,8 +109,8 @@ Công việc của bạn gồm **6 Giai đoạn** theo đúng thứ tự từ l�
 
 > **Nguyên tắc làm việc:** Viết/sửa toàn bộ lệnh trên **VS Code** trước để kiểm tra kỹ rồi mới Copy & Paste vào cửa sổ CLI trong Packet Tracer. Điều này giúp bạn có sẵn file `.txt` sạch sẽ để nộp và chèn vào Báo cáo.
 
-### Bước 3.1: Cấu hình `CoreSW-Nhom8` (Cập nhật file `Configs/CORE-SW.txt`)
-* [ ] Mở file [`Configs/CORE-SW.txt`](../Configs/CORE-SW.txt) trong VS Code, kiểm tra lại phần định tuyến Core và bổ sung phần Uplink + Default Route lên EdgeRouter:
+### Bước 3.1: Cấu hình `CoreSW-Nhom8` (Cập nhật file `Configs/CORE-SW-Nhom8.txt`)
+* [x] Mở file [`Configs/CORE-SW-Nhom8.txt`](Configs/CORE-SW-Nhom8.txt) trong VS Code, kiểm tra lại phần định tuyến Core và bổ sung phần Uplink + Default Route lên EdgeRouter:
   * Đổi `hostname CORE-SW` thành `hostname CoreSW-Nhom8`.
   * Đảm bảo đã có `ip routing`, các `vlan 10, 20, 30, 40, 50, 99`, các `interface Vlan10`..`Vlan99` với Gateway `.1`, và 2 cổng trunk `Gi0/1`, `Gi0/2`.
   * **Bổ sung thêm đoạn lệnh kết nối lên EdgeRouter ở trước dòng `end`:**
@@ -125,14 +125,14 @@ Công việc của bạn gồm **6 Giai đoạn** theo đúng thứ tự từ l�
     ! Default route đẩy lưu lượng ra Internet qua EdgeRouter
     ip route 0.0.0.0 0.0.0.0 10.0.0.1
     ```
-  * *(Lưu ý: Giữ nguyên các phần ACL và SSH có sẵn trong `CORE-SW.txt`, phần đó Thành viên 2 sẽ rà soát và tinh chỉnh lại theo yêu cầu Nhóm 8 ở Bước v2).*
-* [ ] Mở `CoreSW-Nhom8` trong Packet Tracer > Chọn tab **CLI**:
+  * *(Lưu ý: Giữ nguyên các phần ACL và SSH có sẵn trong `CORE-SW-Nhom8.txt`, phần đó Thành viên 2 sẽ rà soát và tinh chỉnh lại theo yêu cầu Nhóm 8 ở Bước v2).*
+* [x] Mở `CoreSW-Nhom8` trong Packet Tracer > Chọn tab **CLI**:
   * Gõ `enable` $\rightarrow$ `configure terminal`.
   * Copy phần lệnh đổi `hostname`, cấu hình `FastEthernet0/24` và `ip route 0.0.0.0 0.0.0.0 10.0.0.1` dán vào CLI.
   * Gõ `end` rồi gõ **`write memory`** để lưu cấu hình vào NVRAM.
 
-### Bước 3.2: Tạo và cấu hình `EdgeRouter-Nhom8` (File mới `Configs/EDGE-ROUTER.txt`)
-* [ ] Trong VS Code, tạo file mới tên là `Configs/EDGE-ROUTER.txt` và soạn đoạn lệnh sau:
+### Bước 3.2: Tạo và cấu hình `EdgeRouter-Nhom8` (File mới `Configs/EdgeRouter-Nhom8.txt`)
+* [x] Trong VS Code, tạo file mới tên là `Configs/EdgeRouter-Nhom8.txt` và soạn đoạn lệnh sau:
   ```cisco
   enable
   configure terminal
@@ -162,7 +162,8 @@ Công việc của bạn gồm **6 Giai đoạn** theo đúng thứ tự từ l�
   ip route 192.168.40.0 255.255.255.0 10.0.0.2
   ip route 192.168.50.0 255.255.255.0 10.0.0.2
   !
-  ! 5. Cấu hình NAT/PAT (Overload) cho 5 VLAN hợp lệ (Không NAT cho VLAN 99 Attacker)
+  ! 5. Cấu hình NAT/PAT (Overload) cho 5 VLAN hợp lệ & CoreSW Uplink (Không NAT cho VLAN 99 Attacker)
+  access-list 1 permit 10.0.0.0 0.0.0.3
   access-list 1 permit 192.168.10.0 0.0.0.255
   access-list 1 permit 192.168.20.0 0.0.0.255
   access-list 1 permit 192.168.30.0 0.0.0.255
@@ -173,11 +174,11 @@ Công việc của bạn gồm **6 Giai đoạn** theo đúng thứ tự từ l�
   end
   write memory
   ```
-* [ ] Mở `EdgeRouter-Nhom8` trong Packet Tracer > Tab **CLI** (nếu hỏi *Continue with configuration dialog? [yes/no]* thì gõ `no` + Enter).
-* [ ] Paste toàn bộ script trên vào CLI của `EdgeRouter-Nhom8` và kiểm tra không có dòng báo lỗi `% Invalid input`.
+* [x] Mở `EdgeRouter-Nhom8` trong Packet Tracer > Tab **CLI** (nếu hỏi *Continue with configuration dialog? [yes/no]* thì gõ `no` + Enter).
+* [x] Paste toàn bộ script trên vào CLI của `EdgeRouter-Nhom8` và kiểm tra không có dòng báo lỗi `% Invalid input`.
 
-### Bước 3.3: Tạo và cấu hình `ISP-Internet` (File mới `Configs/ISP-ROUTER.txt`)
-* [ ] Trong VS Code, tạo file mới `Configs/ISP-ROUTER.txt`:
+### Bước 3.3: Tạo và cấu hình `ISP-Internet` (File mới `Configs/ISP-Internet.txt`)
+* [x] Trong VS Code, tạo file mới `Configs/ISP-Internet.txt`:
   ```cisco
   enable
   configure terminal
@@ -198,7 +199,7 @@ Công việc của bạn gồm **6 Giai đoạn** theo đúng thứ tự từ l�
   end
   write memory
   ```
-* [ ] Mở `ISP-Internet` trong Packet Tracer > Tab **CLI** (gõ `no` nếu có dialog) > Paste toàn bộ lệnh trên và gõ `write memory`.
+* [x] Mở `ISP-Internet` trong Packet Tracer > Tab **CLI** (gõ `no` nếu có dialog) > Paste toàn bộ lệnh trên và gõ `write memory`.
 
 ---
 
@@ -207,24 +208,24 @@ Công việc của bạn gồm **6 Giai đoạn** theo đúng thứ tự từ l�
 Trước khi chuyển file cho Thành viên 2 làm bảo mật & server, bạn **phải tự chạy kiểm tra thông suốt** các hạng mục của mình để chắc chắn hạ tầng Core + NAT không có lỗi:
 
 ### Bước 4.1: Checklist kiểm tra kỹ thuật trên CLI
-* [ ] Đèn nối giữa `CoreSW-Nhom8` $\leftrightarrow$ `EdgeRouter-Nhom8` $\leftrightarrow$ `ISP-Internet` đều chuyển sang **màu xanh lá**.
-* [ ] Trên `CoreSW-Nhom8`, chạy các lệnh:
+* [x] Đèn nối giữa `CoreSW-Nhom8` $\leftrightarrow$ `EdgeRouter-Nhom8` $\leftrightarrow$ `ISP-Internet` đều chuyển sang **màu xanh lá**.
+* [x] Trên `CoreSW-Nhom8`, chạy các lệnh:
   * `show ip interface brief`: Kiểm tra `Vlan10..99` và `FastEthernet0/24` (`10.0.0.2`) đều ở trạng thái `up / up`.
   * `show ip route`: Kiểm tra thấy đủ các tuyến `C` (Connected) cho các VLAN và tuyến `S* 0.0.0.0/0 [1/0] via 10.0.0.1`.
   * `ping 10.0.0.1`: Thành công (`!!!!!`).
   * `ping 8.8.8.8`: Thành công (`!!!!!`).
-* [ ] Trên `EdgeRouter-Nhom8`, chạy các lệnh:
+* [x] Trên `EdgeRouter-Nhom8`, chạy các lệnh:
   * `show ip route`: Thấy tuyến `S* 0.0.0.0/0 via 203.0.113.1` và 5 tuyến `S` trả về `192.168.10.0`..`50.0 via 10.0.0.2`.
   * `ping 8.8.8.8`: Thành công.
-* [ ] Trên 1 PC bất kỳ (ví dụ PC phòng Finance hoặc IT):
+* [x] Trên 1 PC bất kỳ (ví dụ PC phòng Finance hoặc IT):
   * Mở **Command Prompt** gõ `ping 192.168.20.1` (ping Gateway) $\rightarrow$ Thành công.
   * Gõ **`ping 8.8.8.8`** (ping ra Internet qua NAT/PAT) $\rightarrow$ **Phải thành công (`Reply from 8.8.8.8`)!**
-* [ ] Quay lại CLI của `EdgeRouter-Nhom8` gõ **`show ip nat translations`**:
+* [x] Quay lại CLI của `EdgeRouter-Nhom8` gõ **`show ip nat translations`**:
   * Phải nhìn thấy dòng dịch địa chỉ từ `192.168.x.x` (Inside local) thành `203.0.113.2` (Inside global) đi tới `8.8.8.8`! *(Chụp sẵn 1 tấm ảnh này để dùng cho Báo cáo hoặc gửi TV3 tham khảo).*
 
 ### Bước 4.2: Lưu và bàn giao cho Thành viên 2
-* [ ] Bấm `Save` trên Packet Tracer cho file `NETWORK_NHOM8_v1_Core.pkt`.
-* [ ] Upload file `NETWORK_NHOM8_v1_Core.pkt` lên Google Drive (`01_PacketTracer_Versions/`) và các file `.txt` (`CORE-SW.txt`, `EDGE-ROUTER.txt`, `ISP-ROUTER.txt`) vào `02_Configs_CLI/`.
+* [x] Bấm `Save` trên Packet Tracer cho file `NETWORK_NHOM8_v1_Core.pkt`.
+* [ ] Upload file `NETWORK_NHOM8_v1_Core.pkt` lên Google Drive (`01_PacketTracer_Versions/`) và các file `.txt` (`CORE-SW-Nhom8.txt`, `EdgeRouter-Nhom8.txt`, `ISP-Internet.txt`) vào `02_Configs_CLI/`.
 * [ ] Nhắn tin cho Thành viên 2: *"Tớ xong bản v1 (Core, Router biên, NAT ra 8.8.8.8 đã ping thông). Cậu tải `NETWORK_NHOM8_v1_Core.pkt` về làm tiếp Access Switch, ACL, SSH và Web/DNS Server nhé!"*
 
 ---
@@ -234,12 +235,12 @@ Trước khi chuyển file cho Thành viên 2 làm bảo mật & server, bạn *
 Trong thời gian chờ Thành viên 2 cấu hình bảo mật và Thành viên 3 chạy kiểm thử, bạn làm song song 2 đầu việc tài liệu quan trọng này:
 
 ### Bước 5.1: Vẽ sơ đồ kiến trúc mạng chuyên nghiệp trên `draw.io`
-* [ ] Truy cập [app.diagrams.net](https://app.diagrams.net/) > Chọn **Create New Diagram > Blank Diagram**.
-* [ ] Ở thanh bên trái phía dưới, bấm **+ More Shapes...** > Tìm mục **Networking** > Tích chọn **Cisco** (hoặc **Cisco 19**) > Bấm **Apply**.
-* [ ] Vẽ 2 sơ đồ chuẩn để phục vụ Báo cáo & Slide:
-  1. **Sơ đồ 1: Sơ đồ kiến trúc tổng thể (Logical Topology):** Thể hiện rõ 3 tầng (Edge/ISP $\rightarrow$ Core Layer `CoreSW-Nhom8` $\rightarrow$ Access Layer `AccessSW1-Nhom8`, `AccessSW2-Nhom8` $\rightarrow$ 6 vùng VLAN màu sắc phân biệt + ghi chú Subnet `/24`, Gateway `.1` và đường link `/30`).
-  2. **Sơ đồ 2: Sơ đồ luồng định tuyến & kiểm soát bảo mật (Traffic Flow & Security Zones):** Chỉ rõ chiều đi của gói tin hợp lệ ra Internet (qua NAT), chiều gói tin bị chặn giữa HR $\leftrightarrow$ Finance và vùng Attacker bị cô lập.
-* [ ] Export ra file ảnh **PNG** (chọn độ phân giải `300 dpi` hoặc Zoom `200%`, nền trắng) đặt tên rõ ràng (`SoDo_1_Topology_TongThe.png`, `SoDo_2_LuongDuLieu.png`) rồi upload lên Drive (`03_BaoCao_Slide/`) cho Thành viên 3 chèn vào Word & Slide.
+* [x] Truy cập [app.diagrams.net](https://app.diagrams.net/) > Chọn **Create New Diagram > Blank Diagram**.
+* [x] Ở thanh bên trái phía dưới, bấm **+ More Shapes...** > Tìm mục **Networking** > Tích chọn **Cisco** (hoặc **Cisco 19**) > Bấm **Apply**.
+* [x] Vẽ 2 sơ đồ chuẩn để phục vụ Báo cáo & Slide:
+  1. **Sơ đồ 1: Sơ đồ kiến trúc tổng thể (Logical Topology)** (`docs/SoDo_1_Topology_TongThe.drawio`): Thể hiện rõ 3 tầng (Edge/ISP $\rightarrow$ Core Layer `CoreSW-Nhom8` $\rightarrow$ Access Layer `AccessSW1-Nhom8`, `AccessSW2-Nhom8` $\rightarrow$ 6 vùng VLAN màu sắc phân biệt + ghi chú Subnet `/24`, Gateway `.1` và đường link `/30`).
+  2. **Sơ đồ 2: Sơ đồ luồng định tuyến & kiểm soát bảo mật (Traffic Flow & Security Zones)** (`docs/SoDo_2_LuongDuLieu.drawio`): Chỉ rõ chiều đi của gói tin hợp lệ ra Internet (qua NAT), chiều gói tin bị chặn giữa HR $\leftrightarrow$ Finance và vùng Attacker bị cô lập.
+* [x] Lưu trữ file `draw.io` tại thư mục `docs/` (`docs/SoDo_1_Topology_TongThe.drawio`, `docs/SoDo_2_LuongDuLieu.drawio`) phục vụ trích xuất ảnh chèn vào Báo cáo & Slide.
 
 ### Bước 5.2: Viết Chương 1 & Chương 2 của Báo cáo kỹ thuật (trên Word / Google Docs)
 * [ ] **Chương 1: Tổng quan đề tài & Phân tích yêu cầu hệ thống (khoảng 5–7 trang):**

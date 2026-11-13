@@ -1,0 +1,20 @@
+enable
+configure terminal
+hostname ISP-Internet
+
+! Interface connecting to EdgeRouter-Nhom8
+interface GigabitEthernet0/0
+ description Link to EdgeRouter-Nhom8 (Gi0/1)
+ ip address 203.0.113.1 255.255.255.252
+ no shutdown
+ exit
+!
+! Simulated Internet Server (Google DNS 8.8.8.8)
+interface Loopback0
+ description Simulated Internet Server (8.8.8.8)
+ ip address 8.8.8.8 255.255.255.0
+ no shutdown
+ exit
+!
+end
+write memory

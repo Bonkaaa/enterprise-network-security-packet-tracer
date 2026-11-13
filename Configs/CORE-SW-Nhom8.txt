@@ -1,4 +1,4 @@
-hostname CORE-SW
+hostname CoreSW-Nhom8
 ip routing
 
 ! VLAN Creation
@@ -95,6 +95,17 @@ line vty 0 15
  transport input ssh
  login local
  access-class SSH-MGMT in
+
+! === Uplink L3 to EdgeRouter-Nhom8 ===
+interface FastEthernet0/24
+ description Uplink to EdgeRouter-Nhom8
+ no switchport
+ ip address 10.0.0.2 255.255.255.252
+ no shutdown
+ exit
+!
+! Default route to Internet via EdgeRouter-Nhom8
+ip route 0.0.0.0 0.0.0.0 10.0.0.1
 
 end
 write memory
